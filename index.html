@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            width: 350px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #243b53;
+        }
+
+        p {
+            color: #52606d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="contentArea">
+
+        <h1 id="heading">Welcome to Winter!</h1>
+
+        <img
+            id="natureImage"
+            src="winter.png.png"
+            alt="Beautiful winter landscape"
+        >
+
+        <p id="description">
+            Move your mouse over this area to see the change.
+        </p>
+
+    </div>
+
+    <script>
+
+        const contentArea = document.getElementById("contentArea");
+        const heading = document.getElementById("heading");
+        const natureImage = document.getElementById("natureImage");
+        const description = document.getElementById("description");
+
+       
+        const originalImage = "winter.png.png";
+        const alternateImage = "rain.png.png";
+
+
+        contentArea.addEventListener("mouseenter", function () {
+
+            
+            natureImage.src = alternateImage;
+            natureImage.alt = "Beautiful rainy-season landscape";
+
+
+            heading.textContent = "Explore the Rainy Beauty!";
+            heading.style.color = "#16803c";
+
+
+            description.textContent =
+                "Enjoy the beauty of the rainy season!";
+        });
+
+        
+        contentArea.addEventListener("mouseleave", function () {
+
+
+            natureImage.src = originalImage;
+            natureImage.alt = "Beautiful winter landscape";
+
+
+            heading.textContent = "Welcome to Winter!";
+            heading.style.color = "#243b53";
+
+
+            description.textContent =
+                "Move your mouse over this area to see the change.";
+        });
+    </script>
+
+</body>
+</html>
